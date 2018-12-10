@@ -2,8 +2,24 @@
 gitflow使用
 分支
 
-maser，dev 都为长期分支，release, feature, hotfix都是根据实际情况衍生的短期分支。
+maser，dev 都为长期分支，release, feature, hotfix都是根据实际情况衍生的短期分支。<br>
+**简要说明** <br>
+tag在每次版本发布时需要更新。<br>
+基于master分支<br>
+git checkout master<br>
+git tag -m "testv1.0.0" testv1.0.0<br>
+git push origin testv1.0.0<br>
 
+在产品上线遇到紧急bug时，可以基于master或者当前版本tag创建hotfix分支<br>
+git checkout testv1.0.0<br>
+git checkout -b hotfix<br>
+git push origin hotfix<br>
+修改完毕后需要合到dev，master,以及之后的tag分支<br>
+基于master创建新的tag git tag -m "修复testv1.0.0问题" testv1.0.1<br>
+git push origin testv1.0.1<br>
+删除hotfix分支<br>
+本地分支 git branch -D hotfix<br>
+远程分支 git push origin :hotfix<br>
 ## 主分支 （master）
 
 始终稳定的分支，主要用于发布生产环境（Production) , 并在相应的版本发布时间点打上相应的版本 tag。 当生产环境出现紧急bug 后，从 master 衍生 hotfix 分支，并进行 bugfix 开发。需要注意的是，master 分支除了与 pre-release 分支有直接的 merge 操作外，不会与 dev 和其他任何 feature 分支进行 merge 操作，除去要进行紧急的 hotfix 分支以外。
