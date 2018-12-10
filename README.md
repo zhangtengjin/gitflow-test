@@ -28,3 +28,5 @@ maser，dev 都为长期分支，release, feature, hotfix都是根据实际情�
 ## 补丁分支 （hotfix branch）
 
 Bug修复分支，基于master分支或发布的里程碑Tag克隆，主要用于修复对外发布的分支，收到客户的Bug反馈后，在此分支进行修复，修复完毕后分别合并到develop分支和master分支。本分支属于临时分支，目的实现后可删除分支。
+
+参考连接 https://blog.csdn.net/zsm180/article/details/75291260
